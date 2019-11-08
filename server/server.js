@@ -32,9 +32,7 @@ app.use(compression());
 app.use(morgan('combined'));
 
 _.each(ENABLED_MODULES, module => module(app));
-
-app.listen(C.PORT);
-createBanner();
+app.listen(C.PORT, createBanner);
 
 function createBanner() {
   log.info(chalk.green('================================'));

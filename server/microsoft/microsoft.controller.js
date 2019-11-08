@@ -3,5 +3,5 @@ module.exports = {
 };
 
 async function get(req, res) {
-  return res.send('hi');
+  return res.send({ message: 'hi Tom'});
 }
