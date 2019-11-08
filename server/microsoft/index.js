@@ -1,4 +1,11 @@
 const log = require('../services/log');
+const microsoftRouter = require('./microsoft.routes');
 
-log.info('Initializing Microsoft Routes');
-module.exports = require('./microsoft.routes');
+module.exports = init;
+
+function init(parentRouter) {
+  log.info('Initializing Microsoft Mock Data');
+
+  log.info('Initializing Microsoft Routes');
+  microsoftRouter(parentRouter);
+}

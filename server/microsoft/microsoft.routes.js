@@ -1,9 +1,14 @@
-const router = require('express-promise-router')();
-const controller = require('./microsoft.controller');
+const microsoftRouter = require('express-promise-router')();
+const _ = require('lodash');
 
 module.exports = routes;
 
-function routes(app) {
-  router.get('/', controller.get);
-  app.use('/microsoft', router);
+const ENABLED_ROUTES = [
+  require('./customer/customer.routes'),
+  require('./product/product.routes'),
+];
+
+function routes(parentRouter) {
+  _.each(ENABLED_ROUTES, (r) => r(microsoftRouter));
+  parentRouter.use('/microsoft', microsoftRouter);
 }

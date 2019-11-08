@@ -7,6 +7,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const mainRouter = require('express-promise-router')();
 
 // node
 const path = require('path');
@@ -31,7 +32,8 @@ app.use(bodyParser.json());
 app.use(compression());
 app.use(morgan('combined'));
 
-_.each(ENABLED_MODULES, module => module(app));
+_.each(ENABLED_MODULES, module => module(mainRouter));
+app.use(mainRouter);
 app.listen(C.PORT, createBanner);
 
 function createBanner() {
