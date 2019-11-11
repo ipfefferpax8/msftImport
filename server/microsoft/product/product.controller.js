@@ -1,7 +1,9 @@
+const ProductService = require('./product.service');
+
 module.exports = {
-  getSkus,
+  getOffers,
 };
 
-async function getSkus(req, res) {
-  return res.send({ message: 'hi Ian'});
+async function getOffers(req, res) {
+  res.send(ProductService.getProductOffersById(req.params.productId));
 }

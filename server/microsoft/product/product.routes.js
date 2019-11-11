@@ -9,6 +9,6 @@ module.exports = routes;
 
 function routes(parentRouter) {
   log.info('Initializing Product routes');
-  productRoutes.get('/:productId/skus', controller.getSkus);
+  productRoutes.get('/:productId/skus', controller.getOffers);
   parentRouter.use('/product', productRoutes);
 }

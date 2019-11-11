@@ -4,8 +4,6 @@ const microsoftRouter = require('./microsoft.routes');
 module.exports = init;
 
 function init(parentRouter) {
-  log.info('Initializing Microsoft Mock Data');
-
   log.info('Initializing Microsoft Routes');
   microsoftRouter(parentRouter);
 }

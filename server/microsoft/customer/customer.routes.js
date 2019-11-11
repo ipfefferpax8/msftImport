@@ -1,5 +1,6 @@
 const customerRouter = require('express-promise-router')();
 const controller = require('./customer.controller');
+const customerStore = require('./customer.store');
 const log = require('../../services/log');
 
 //company ---
@@ -13,9 +14,15 @@ module.exports = routes;
 
 function routes(parentRouter) {
   log.info('Initializing Customer routes');
+  customerStore.init();
   customerRouter.get('/', controller.getCustomers);
-  customerRouter.get('/:tenantId/subscriptions', controller.getSubscriptions);
+  customerRouter.get('/:customerId', controller.getCustomerById);
   customerRouter.get('/:tenantId/subscribedSkus', controller.getSubscribedSkus);
+
+  // 401 on this for now
+  customerRouter.get('/:tenantId/subscriptions', controller.getSubscriptions);
+
+  // used in user assignment todo
   customerRouter.get('/:tenantId/users', controller.getUsers);
   customerRouter.get('/:tenantId/users/:userId/licenses', controller.getUserLicenses);
 

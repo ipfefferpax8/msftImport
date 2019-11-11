@@ -15,6 +15,7 @@ const path = require('path');
 // internal
 const log = require('./services/log');
 const C = require('./services/constant');
+const HttpErrorHandler = require('./services/httpErrors').HttpErrorHandler;
 const app = express();
 
 const ENABLED_MODULES = [
@@ -34,6 +35,7 @@ app.use(morgan('combined'));
 
 _.each(ENABLED_MODULES, module => module(mainRouter));
 app.use(mainRouter);
+app.use(HttpErrorHandler);
 app.listen(C.PORT, createBanner);
 
 function createBanner() {
