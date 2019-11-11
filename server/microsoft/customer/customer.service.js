@@ -26,9 +26,7 @@ function createCustomerWrap(customers) {
 }
 
 function createSubscribedSkus() {
-  return {
-    productSku: ProductService.getRandomProductSkus()
-  };
+  return ProductService.createProductSkus()
 }
 
 function createCustomer() {
