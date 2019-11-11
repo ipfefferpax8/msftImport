@@ -15,7 +15,7 @@ function createProductSkus() {
 function createProductSku(productSku) {
   return {
     productSku,
-    activeUnits: Math.ceil(Math.random() * 20),
+    activeUnits: Math.ceil(Math.random() * 100),
   }
 }
 
