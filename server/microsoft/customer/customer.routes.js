@@ -20,7 +20,7 @@ function routes(parentRouter) {
   customerRouter.get('/:tenantId/subscribedSkus', controller.getSubscribedSkus);
 
   // 401 on this for now
-  customerRouter.get('/:tenantId/subscriptions', controller.getSubscriptions);
+  customerRouter.get('/:tenantId/subscription', controller.getSubscriptions);
 
   // used in user assignment todo
   customerRouter.get('/:tenantId/users', controller.getUsers);
