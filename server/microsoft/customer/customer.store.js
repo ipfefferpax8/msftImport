@@ -19,11 +19,11 @@ function init(numberOfCustomers) {
   if(!numberOfCustomers) {
     numberOfCustomers = DEFAULT_NUMBER_OF_CUSTOMERS
   }
-  log.info(`Mock Data initializing ${numberOfCustomers} customers`);
+  log.info(`Mock Data initializing custom customers`);
 
 //  customers = _.map(_.range(numberOfCustomers), CustomerService.createCustomer);
 //  _.each(customers, c => subscribedSkusByTenantId[c.tenantId] = CustomerService.createSubscribedSkus(c.tenantId));
-  
+
   const customer1 = CustomerService.createCustomer();
   customer1.companyProfile.companyName = 'no Phone Number';
   customer1.companyProfile.address.phoneNumber = '';
